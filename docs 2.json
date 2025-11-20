@@ -1,0 +1,96 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "nao Labs",
+  "colors": {
+    "primary": "#6161f7",
+    "light": "#8b8bf9",
+    "dark": "#4a4af5"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Docs",
+        "groups": [
+          {
+            "group": "🦘 Get Started",
+            "pages": [
+              "get-started/nao-first-tour",
+              "get-started/set-up-data-connection",
+              "get-started/test-nao-sandbox",
+              "get-started/set-up-dbt"
+            ]
+          },
+          {
+            "group": "📚 Docs",
+            "pages": [
+              "docs/features",
+              "docs/nao-agent",
+              "docs/nao-tab",
+              "docs/codebase-indexing",
+              "docs/work-with-sql",
+              "docs/work-with-dbt"
+            ]
+          },
+          {
+            "group": "Use Cases",
+            "pages": [
+              "use-cases/prompt-library"
+            ]
+          },
+          {
+            "group": "Support",
+            "pages": [
+              "privacy-policy/intro",
+              "support/intro"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Releases",
+          "href": "https://sunshine.getnao.io/releases/",
+          "icon": "rocket"
+        },
+        {
+          "anchor": "Slack",
+          "href": "https://join.slack.com/t/naolabs/shared_invite/zt-33txohwoj-7grxIbyLZsgxLoDeC4D~vw",
+          "icon": "slack"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:claire@getnao.io"
+      }
+    ]
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
+  },
+  "footer": {
+    "socials": {
+      "slack": "https://join.slack.com/t/naolabs/shared_invite/zt-33txohwoj-7grxIbyLZsgxLoDeC4D~vw"
+    }
+  }
+}

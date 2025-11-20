@@ -1,0 +1,362 @@
+---
+title: "Prompt Library"
+description: "Explore a collection of useful prompts for getting the most out of nao. Use these examples to accelerate your workflow and discover new ways to interact with your data."
+---
+
+Explore a collection of useful prompts for getting the most out of nao. Use these examples to accelerate your workflow and discover new ways to interact with your data.
+
+## dbt
+
+### Create a dbt model
+**Context:** None  
+**Template:**
+```
+Create a dbt model called {model_name} that {description}, as well as its yaml documentation.
+{Start from existing dbt models {ref_names}}
+{Final output should include these columns: {column list}}
+{Create this model in the {layer_name} layer / {folder_name} folder}
+```
+
+### Create staging dbt model from table
+**Context:** Data warehouse table  
+**Template:**
+```
+Create a staging model from this table, as well as its yaml documentation.
+```
+
+### Convert SQL to dbt model
+**Context:** SQL file  
+**Template:**
+```
+Create a dbt model called {model_name} from this SQL code, as well as its yaml documentation.
+{Create this model in the {layer_name} layer / {folder_name} folder}
+```
+
+### Explain a dbt model
+**Context:** dbt model SQL file  
+**Template:**
+```
+Explain what this dbt model does, including:
+- Business purpose and use case
+- Data sources and transformations
+- Key metrics and calculations
+- Downstream usage
+```
+
+### Improve a dbt model
+**Context:** dbt model SQL file  
+**Template:**
+```
+Review this dbt model and suggest improvements for:
+- Performance optimization
+- Code readability and maintainability
+- dbt best practices compliance
+- repository best practices compliance
+```
+
+### Write documentation of a model
+**Context:** dbt model SQL file  
+**Template:**
+```
+Add yaml documentation for this dbt model, following these rules:
+- Add documentation in the relevant yaml file if it already exists, otherwise create it in the relevant folder. 
+- Compare dbt model schema and yaml documentation, so that documentation is up to date with dbt model
+- Follow existing yaml best practices of repository. 
+- Reuse existing documentation already written for some columns.
+```
+
+### Write tests for a model
+**Context:** dbt model SQL file  
+**Template:**
+```
+Add dbt tests for this dbt model, following these rules:
+- Add basic tests in the relevant yaml file if it already exists, otherwise create it in the relevant folder. 
+- Add unique and not null tests for key/relevant columns only
+- Follow existing yaml tests best practices of repository.
+```
+
+### Write custom dbt test
+**Context:** dbt model SQL file  
+**Template:**
+```
+Create a custom dbt test for this dbt model that validates {business_rule}.
+The test should render all the lines where {conditions when the test fails}
+```
+
+### Write dbt unit tests
+**Context:** dbt model SQL file  
+**Template:**
+```
+Generate unit tests for this dbt model using dbt's unit testing framework.
+Include test scenarios for {test_scenarios} with mock input data and expected outputs.
+```
+
+### Get dependencies of a dbt model
+**Context:** dbt model SQL file  
+**Template:**
+```
+Show me all the upstream and downstream dependencies for this dbt model.
+Include both direct and indirect dependencies with their relationship types.
+```
+
+### Get dependencies of a column in dbt lineage
+**Context:** None  
+**Template:**
+```
+Find all models that use the column {column_name}.
+Show me the complete lineage and how this column flows through the data pipeline.
+```
+
+### Rename a column through the lineage
+**Context:** dbt model SQL file  
+**Template:**
+```
+Rename the column {column_name} to {new_column_name} in {this model / all models}
+Identify all downstream models that will be impacted and provide the necessary changes.
+Update all related documentation and tests accordingly.
+```
+
+### Remove a column through the lineage
+**Context:** dbt model SQL file  
+**Template:**
+```
+Remove the column {column_name} from {this model / all models}
+Identify all downstream models that will be impacted and provide the necessary changes.
+Update all related documentation and tests accordingly.
+```
+
+### Add a column in final layer
+**Context:** dbt model SQL file  
+**Template:**
+```
+Add a new column {column_name} in this model.
+If column is not directly available in this model, add the necessary ref to the model to make it available. Make sure you follow the layers rules in doing so.
+Update all related documentation and tests accordingly.
+```
+
+### Turning a model into incremental
+**Context:** dbt model SQL file  
+**Template:**
+```
+Convert this model to use incremental materialization.
+Set up appropriate unique keys, incremental strategy, and handle late-arriving data.
+```
+
+### Optimize data model
+**Context:** None  
+**Template:**
+```
+Audit dbt project for better consistency and scalability:
+- Detect code logics that can be factorized
+- Detect dbt models that can be broken into smaller logics
+- Detect dbt models that are not used 
+- Detect inconsistencies in fields / metrics definitions
+- Detect inconsistencies in the different data layers rules
+```
+
+### Rename a dbt model
+**Context:** dbt model SQL file  
+**Template:**
+```
+Rename this model to {new_model_name}.
+Update all references, dependencies, and documentation throughout the project.
+```
+
+## SQL
+
+### Write SQL query
+**Context:** None  
+**Template:**
+```
+Write a SQL query that {description}.
+{Start from these tables: {table_names}}
+{Final output should include these columns: {column list}}
+{Create this SQL query in {folder_name} folder / an SQL worksheet}
+```
+
+### Improve an SQL query
+**Context:** SQL file  
+**Template:**
+```
+Review this query and suggest improvements for:
+- Performance optimization
+- Code readability and maintainability
+- repository best practices compliance
+```
+
+### Explain an SQL query
+**Context:** SQL file  
+**Template:**
+```
+Explain what this SQL query does, including:
+- Business purpose and use case
+- Data sources and transformations
+- Key metrics and calculations
+```
+
+### Fix an SQL error
+**Context:** SQL file  
+**Template:**
+```
+Fix this SQL error:
+Error: {error_message}
+```
+
+## Data exploration
+
+### What are the values for a column?
+**Context:** Data warehouse table  
+**Template:**
+```
+What are the distinct values in the column {column_name}?
+```
+
+### What's the value distribution for a column?
+**Context:** Data warehouse table  
+**Template:**
+```
+Analyze the distribution of values in {column_name} from this table.
+```
+
+### What's the granularity of a table?
+**Context:** Data warehouse table  
+**Template:**
+```
+Determine the granularity of this table.
+Identify the primary key and explain what each row represents in business terms.
+```
+
+### Json keys extraction in a column
+**Context:** Data warehouse table  
+**Template:**
+```
+Extract the JSON keys from the column {json_column} in this table.
+Output the list of all the keys.
+```
+
+### Find relevant table for an analysis
+**Context:** None  
+**Template:**
+```
+What are the most relevant tables and columns in the data warehouse to analyze: {analysis to run / information to find}
+```
+
+### Run analytics on your data
+**Context:** None  
+**Template:**
+```
+Run this analysis: {analysis description}
+Write SQL query, and execute it to answer the question.
+```
+
+## Data quality checks
+
+### Are there null values in a column?
+**Context:** Data warehouse table  
+**Template:**
+```
+What's the percentage of null values in this column: {column_name}?
+```
+
+### Are there outlier values in a column?
+**Context:** Data warehouse table  
+**Template:**
+```
+Detect any outlier values in this column: {column_name}
+```
+
+### Data diff between dev and production
+**Context:** None  
+**Template:**
+```
+Profile these 2 tables of dev and production and compare them.
+Provide a summary of differences in number of rows, schema, value distribution.
+```
+
+## Git
+
+### Write PR description
+**Context:** None  
+**Template:**
+```
+Generate a pull request description for the changes made.
+Include:
+- Business description of changes
+- Summary of code changes
+- Summary of data output changes
+```
+
+## Data service desk
+
+### Write full PR to answer to a business user request
+**Context:** None  
+**Template:**
+```
+Create all necessary code changes for this business request:
+{business_request}
+Including models, tests, documentation, and PR description.
+Make sure you check the code changes don't break any dependencies in the repository. Run any data quality checks needed to validate the code changes.
+```
+
+### Run full analysis to answer a business user request
+**Context:** None  
+**Template:**
+```
+Run full analysis to answer this business request:
+{business_request}
+Find the relevant tables/columns to answer the request, and write the corresponding queries.
+Answer with answer in plain english + raw query results to illustrate answer.
+```
+
+## Pandas
+
+### Write pandas code to clean data
+**Context:** Data warehouse table  
+**Template:**
+```
+Write python code to import this data as a pandas dataframe.
+Prepare the dataset with the following transformations:
+- Filter data on these rules: {filtering rules}
+- Create these new columns: {columns to create}
+```
+
+## Machine Learning
+
+### Write python code for feature engineering
+**Context:** Data warehouse table  
+**Template:**
+```
+We want to create a ML model for {describe ML model}
+Write feature engineering Python code to prepare the dataset for this ML model:
+- Import this data as a pandas dataframe
+- Filter data on these rules: {filtering rules}
+- Create these new columns: {columns to create}
+- Generate features relevant for the model
+```
+
+### Write python code to create forecasting model
+**Context:** Data warehouse table  
+**Template:**
+```
+We want to create a ML model for forecasting {describe forecasting target}
+Write Python code to:
+- Import this data as a pandas dataframe
+- Prepare the dataset for this ML model
+- Write the training and test framework
+- Implement ML model
+- Measure performance of ML model
+```
+
+### Write python code to create scoring model
+**Context:** Data warehouse table  
+**Template:**
+```
+We want to create a ML model for scoring {describe scoring target}
+Write Python code to:
+- Import this data as a pandas dataframe
+- Prepare the dataset for this ML model
+- Write the training and test framework
+- Implement ML model
+- Measure performance of ML model
+```
+

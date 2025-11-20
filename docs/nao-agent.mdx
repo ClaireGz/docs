@@ -1,0 +1,270 @@
+---
+title: "nao Agent"
+description: "nao agent is your AI-powered assistant with access to both your codebase repository and your data connection."
+---
+
+## Introduction
+
+nao agent is your AI-powered assistant with access to both your codebase repository and your data connection. 
+
+nao agent can:
+- Access and search your codebase
+- Explore your data warehouse schema
+- Retrieve specific files or data content
+- Execute queries on your data warehouse
+- Understand dbt models, documentation, and lineage
+
+To learn more about how your codebase and warehouse are indexed, see the [Codebase / Warehouse Indexing](./codebase-indexing) page.
+
+For a full list of available agent functions, see the [Agent capabilities](#agent-capabilities) section below.
+
+## Add context to the agent
+
+By default, nao agent has always access to your codebase info and data warehouse metadata (list of tables and their schema).
+
+You can give some more precise context:
+- Files from your repositories
+- Data warehouse tables
+- SQL Worksheets
+
+On the chat area, click on "Add context", to add specific files/tables/worksheets to add to your prompt. In the context picker dropdown, you'll have access to all folder files, SQL worksheets, and data warehouse tables. Note that when passing a table to the context, it will only send its metadata, and not its content.
+
+<div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
+  <div style={{ textAlign: 'center' }}>
+    <img src="/images/context_picker_2.png" alt="Add context to the chat" width="400" />
+  </div>
+  <div style={{ textAlign: 'center' }}>
+    <img src="/images/context_picker.png" alt="Add context to the chat" width="642" />
+  </div>
+</div>
+
+You can also select entire folders or schemas as context.
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/add_schemas_to_context.png" alt="Add schemas to context" width="500" />
+</div>
+
+And you can drag and drop items to add them.
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/drag_and_drop_2.gif" alt="Drag and drop items to add context" width="600" />
+</div>
+
+You can add lines of code as context to the chat as well.
+Select code in your worksheet that you want to add. Then click "+ Add to Chat" when it appears, or alternatively use Cmd + L (Ctrl + L on Windows).
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/cmd_l.png" alt="Apply code" width="600" />
+</div>
+
+## Create multiple chats
+
+In the chat, you can:
+- Run multiple agents at the same time
+- Rename a chat by double clicking it
+- See file changes in tab
+- Reorder tabs
+- See when a tab is running (highlighted with a blue dot)
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/multiple_chats.png" alt="Multiple chats and tab states" width="500" />
+</div>
+
+## Accept changes from the agent
+
+When the agent suggests changes (such as code edits or SQL queries), you'll see an "**Apply**" button next to the code snippet. When clicked, the proposed change will be applied directly in your code.
+
+Once applied in the code, you'll be able to either accept / reject all code. Or to accept/reject each bit of code suggested.
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/apply.gif" alt="Apply code" width="600" />
+</div>
+
+When applying changes to an SQL query, a preview will automatically be triggered so that you can visualize the output of suggested code. It will higlight in green / red the changeds directly in your data.
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/instant_diff.png" alt="Preview data changes" width="500" />
+</div>
+
+<Tip>
+You can disable automatic previews in Settings -> General -> Features -> Auto-Preview.
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/auto-preview.png" alt="Auto-preview setting" width="500" />
+</div>
+</Tip>
+
+## Allow the agent to auto-apply changes
+
+Enable the "Edit" button in the chat to let the agent auto-apply changes to your files. Once activated, the agent will edit your code directly based on your requests.
+
+You can always review the changes and decide whether to accept or reject them.
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/auto_edit_code.png" alt="Auto-edit setting" width="600" />
+</div>
+
+You can also use Ctrl+Z to undo accepted or rejected changes, view character-level diffs, and use line-level widgets to accept or reject changes within a line.
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/line_level_diff.png" alt="Line-level accept/reject and character diff" width="600" />
+</div>
+
+## Interact with the terminal
+
+You can run terminal commands in chat, for example Git commands like git add, git commit, git push.
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/terminal_commands_in_chat_2.png" alt="Run terminal commands in chat" width="600" />
+</div>
+
+You can also fix terminal errors directly in chat by clicking "Fix in chat".
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/fix_in_chat_terminal.png" alt="Fix terminal errors in chat" width="600" />
+</div>
+
+## Agent capabilities
+
+**💻 Codebase**
+
+- Search codebase
+- Get content of a file
+
+**dbt**
+
+- Get dependencies of a dbt model
+- Find source yaml of a dbt model
+- Find documentation yaml of a dbt model
+
+**🛢 Warehouse**
+
+- Search datawarehouse
+- Get schema of a table
+
+**📊 Analytics**
+
+- Execute a query on the warehouse
+- Generate charts from query results in the chat
+
+**🖥 Terminal**
+
+- Run terminal commands
+- Fix terminal errors in chat
+
+## Choose LLM provider
+
+You can choose several LLM providers to use in nao agent: Claude, GPT, Gemini, and Mistral.
+
+> 1. Go on nao settings at top right  
+>
+>    <img src="/images/settings.png" alt="nao settings" width="500" />
+>
+> 2. Go to "Agent" section then "Model Providers" 
+>
+>    Enable the LLM providers you want (we strongly recommend Claude)  
+>
+>    <img src="/images/new_llm_models.png" alt="AI Models" width="500" />
+>
+> 3. In the chat, change the LLM you want whenever  
+>
+>    <img src="/images/in_chat_llms.png" alt="Change LLM" width="500" />
+
+Companies can use their own API keys. [Reach out to us](https://getnao.io/calendar.html) if you want to use your own keys.  
+>
+>    <img src="/images/api_keys.png" alt="API Keys configuration" width="500" />
+
+## Customize your agent with nao rules
+
+You can give custom rules to your nao agent thanks to the "**.naorules**" file. In this file, you can pass any custom rules, written in plain english. They will be passed to all the conversations you have with nao agent.
+
+Set preferences to align the Agent with your team's standards:
+- Code style: SQL formatting, naming conventions
+- Agent behavior: Language, tone, documentation habits
+- Tool-specific: Include your data stack documentation (Airflow, dbt, etc.)
+
+>
+> 1. Go on nao settings at top right  
+>    <img src="/images/settings.png" alt="nao settings" width="500" />
+> 2. Go to "Agent" section  
+>    Scroll down to Chat -> Nao Rules. Click "+Add" to create .naorules at root folder  
+>    <img src="/images/naorules_path.png" alt="Create .naorules" width="500" />
+> 3. Write in plain english your custom rules!  
+>    <img src="/images/nao_rules2.png" alt="Write custom rules" width="500" />
+
+## Conversational analytics in agent
+
+### Query your data with the agent
+
+The agent helps you analyze your data through natural language.
+
+>
+> 1. Write your question in natural language  
+>
+> 2. Agent writes the SQL query based on your question  
+>
+> 3. Click "Allow" to let the agent execute the query  
+>    <img src="/images/query_execution.png" alt="Allow execution" width="500" />
+>
+> 4. Choose how to view your data: click "Share" to share results with the LLM, or "Preview local" to view results privately. Remember, the LLM doesn't see your data unless you explicitly share it  
+>    <img src="/images/share_llm.png" alt="Data sharing options" width="500" />
+
+<Tip>
+**Tips**
+Enable Auto-Run in Settings -> Agent -> Chat to allow the agent to automatically run tools without asking for approval.
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/auto-run.png" alt="Auto-run setting" width="500" />
+</div>
+
+Toggle the 🔒 icon to switch between "always share" (open) or "ask permission" (closed) for data sharing with the LLM.
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/lock-share.png" alt="Lock sharing setting" width="500" />
+</div>
+</Tip>
+
+### Visualize data with charts
+
+The agent can create various types of visualizations from your query results:
+
+- **Bar Charts**: Great for comparing categories
+  ```
+  "Show me a bar chart of sales by region"
+  ```
+
+- **Line Charts**: Perfect for time series and trends
+  ```
+  "Create a line chart showing monthly revenue over time"
+  ```
+
+- **Pie Charts**: Ideal for showing proportions
+  ```
+  "Display a pie chart of customer distribution by country"
+  ```
+
+To get a visualization, simply ask the agent to "show", "create", or "display" a chart of your data. You can specify the type of chart you want or let the agent suggest the most appropriate visualization for your data.
+
+Example:
+```
+"Can you show me a chart of our top 10 customers by revenue?"
+"Create a visualization of monthly active users over the last year"
+"Draw a bar chart with number of weekly releases"
+```
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/bar_chart.png" alt="Bar chart example - weekly releases" width="450" />
+</div>
+
+### Display reasoning
+You can see the agent's reasoning in real time when using reasoning models - GPT-5, gpt-oss and Gemini 2.5 Pro (marked with a 🧠 icon in the model list).
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/reasoning_models_2.png" alt="Reasoning model reasoning display" width="600" />
+</div>
+
+<div style={{ textAlign: 'center', marginBottom: '10px' }}>
+  <img src="/images/resoning_models_1.png" alt="Reasoning models selection" width="600" />
+  
+</div>
+

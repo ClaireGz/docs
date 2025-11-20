@@ -1,0 +1,105 @@
+---
+title: "Work with SQL"
+description: "Learn how to use nao to write, execute, and manage SQL queries efficiently."
+---
+
+Learn how to use **nao** to write, execute, and manage SQL queries efficiently.
+
+## Browse your database
+
+Explore your connected data warehouse directly from nao.  
+- Open the <span style={{color:'#6161f7', fontWeight:'bold'}}>database side bar</span> on the left to browse available tables.  
+- When you click on a table, you will be able to **preview** it directly within nao.
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/data_bar.png" alt="Browse data" width="200" />
+</div>
+
+## Run SQL queries
+
+You can directly execute SQL queries in `.sql` files.  
+Just click on the <span style={{color:'#6161f7', fontWeight:'bold'}}>execute SQL</span> button on the top bar, or press <span style={{color:'#6161f7', fontWeight:'bold'}}>cmd+enter</span>.
+
+<Tip>
+**Multi-query execution:**
+- If you have multiple SQL queries in a single file, **nao will execute the query where your cursor is**
+- You can also **select a portion of SQL** and execute this selection with **cmd+enter**
+</Tip>
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/execute_sql.png" alt="Execute SQL" width="700" />
+</div>
+
+## SQL table/column completion
+
+For all data warehouses, nao will suggest **auto-complete of tables and column names**.  
+Every time you type "space", a dropdown with available tables/columns will appear.  
+
+<Tip>
+**nao AI autocomplete uses your data schema**
+Context of available tables/columns will also be passed to the AI auto-complete.
+This will allow the AI autocomplete to suggest SQL relevant to your underlying data.
+</Tip>
+
+<div style={{
+  maxWidth: '900px',
+  margin: '0 auto',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '2rem',
+  flexWrap: 'wrap'
+}}>
+  <img src="/images/table_suggestion.png" alt="Table suggestion" style={{ maxWidth: '300px', width: 'auto', height: 'auto' }} />
+  <img src="/images/column_suggestion.png" alt="Column suggestion" style={{ maxWidth: '300px', width: 'auto', height: 'auto' }} />
+  <img src="/images/tab_data.png" alt="Tab suggestions" style={{ maxWidth: '300px', width: 'auto', height: 'auto' }} />
+</div>
+
+## Fix SQL with chat
+
+If you encounter error when executing SQL, a "<span style={{color:'#6161f7', fontWeight:'bold'}}>fix in chat</span>" button will appear. 
+If you click on this button, the agent will be sent your query + error message, and suggest a fix to your SQL code.
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/fix_in_chat.png" alt="Fix in chat" width="700" />
+</div>
+
+## SQL worksheets
+
+You can create **SQL worksheets** within nao, for adhoc query writing.  
+These worksheets will be **saved within nao**, instead of being saved in your repository.
+
+<Tip>
+**Create a worksheet**
+To create a worksheet, you can either click on the **"+" button** from an SQL file,  
+or go to the **"worksheet" tab** on the left panel.  
+From this panel, you will also be able to **rename, delete, or open your worksheets**.
+</Tip>
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/sql_worksheets.png" alt="SQL worksheets" width="700" />
+</div>
+
+## SQL query costs (BigQuery)
+
+For **BigQuery** data warehouse, you can access the **cost of your query** in the bottom bar.  
+It will be available even before you run the SQL query, and will also indicate if the dry run of your query goes through.
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/bigquery_cost.png" alt="BigQuery cost" width="700" />
+</div>
+
+## Data changes preview
+
+When you change SQL code, nao allows you to **preview directly corresponding changes in the data**. Click on **"table diff"** in the preview section to see a highlighted version of additions / deletions in your data.
+
+<Info>
+**What is comparison point for the diff?**
+This table diff is based on the **last commit of your branch**.  
+It will show you data differences between running code in the last commit and current code of the file.
+</Info>
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/data_diff.gif" alt="BigQuery cost" width="700" />
+</div>
+

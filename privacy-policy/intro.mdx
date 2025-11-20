@@ -1,0 +1,32 @@
+---
+title: "Privacy Policy"
+description: "Learn about how nao Labs handles your data and privacy."
+---
+
+## Data Location
+
+Our servers are located in the European Union (France). We are using Scaleway for our backend and database (Postgres) infrastructure.
+
+## Data Collection
+
+nao Labs does not collect any data from you that you did not explicitly share with us. Explicitly sharing is done when you:
+- Index your codebase
+- Index your warehouse
+- Use the chat
+
+nao backend does not have access to your data, when you connect your warehouse the connection credentials are only stored on your machine and never sent to our servers. The content of your data is never indexed or read by nao backend, only the metadata is used to generate the embeddings.
+
+### Index your codebase
+
+When you index your codebase, we will generate embeddings using OpenAI's API, store the embeddings in our vector database called [Turbopuffer](https://turbopuffer.com/) on EU servers. We will not store any code from your codebase, only the filepath which we consider metadata.
+
+### Index your warehouse
+
+When you index your warehouse, we will generate embeddings of the tables using OpenAI's API, store the embeddings in our vector database called Turbopuffer on EU servers. 
+
+We do not access nor store the content of the tables. Only the metadata (table name, columns names, types and descriptions) of the tables is used to generate the embeddings.
+
+### Use the chat
+
+When you use the chat, we will store the conversations in our database. Depending on the model you are using the underlying providers could also store the conversation in their own systems. We are currently supporting OpenAI, Anthropic and Mistral models. You can disable the models that you don't want to use.
+

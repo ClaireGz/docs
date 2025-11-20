@@ -1,0 +1,172 @@
+---
+title: "Set up data connection"
+description: "Learn how to connect nao to your data sources. This page will guide you through the process of setting up your data connections securely and efficiently."
+---
+
+Learn how to connect nao to your data sources. This page will guide you through the process of setting up your data connections securely and efficiently.
+
+<Tip>
+**Why do I have to connect my data?**
+
+With your data connection in nao you will be able to:
+
+- Execute & preview SQL queries
+- Add data context to the tab & agent
+- Have Agent execute queries for you and run data quality checks
+</Tip>
+
+<Info>
+You can connect multiple databases at once in nao.
+
+To add a connection:
+Go to Settings > Warehouse Connections > Add Connection
+
+You can choose to:
+- Set a connection as a global connection (available across all folders in nao)
+- Attach a connection to a specific workspace
+
+To do this, hover over a connection and you'll see the options:
+"Attach to workspace" or "Make global"
+
+Use the small circle next to each connection to activate your desired database.
+
+All your connected databases are visible in the left sidebar for quick access.
+</Info>
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/multiple_db_connections.png" alt="Multiple database connections" width="1000" />
+</div>
+
+## BigQuery
+
+<Tip>
+**Connection Modes**
+- Service Account
+- SSO
+</Tip>
+
+<Info>
+**Connection Details**
+You can connect with SSO or service account. If SSO, precise the id of your BQ project. 
+
+Select multiple project-ids and datasets using the following patterns:
+- Comma separated values (project1,project2): Select specific projects by listing them explicitly (no space after the comma)
+
+- Wildcard prefix (project_*): Select all projects that start with "project_"
+
+- Exclusion (!project2): Select all projects except "project2"
+</Info>
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/BigQueryCon.png" alt="BigQuery connection" width="400" />
+</div>
+
+## Snowflake
+
+<Tip>
+**Connection Modes**
+- User Password
+- SSO
+- Key Pair
+</Tip>
+
+<Info>
+**Connection Details**
+You can connect to snowflake with SSO or user and password.
+
+Select specific databases and schemas using the following patterns:
+
+- Comma separated values (db1,db2): Select specific databases by listing them explicitly (no space after the comma)
+
+- Wildcard prefix (db_*): Select all databases that start with "db_"
+
+- Exclusion (!db2): Select all databases except "db2"
+</Info>
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/SnowflakeCon.png" alt="Snowflake connection" width="400" />
+</div>
+
+## Postgres
+
+<Tip>
+**Connection Modes**
+- SSH
+- SSL
+- TLS
+</Tip>
+
+<Info>
+**Connection Details**
+Enter the information of your Postgres database to connect. You can connect using SSL, TLS, or SSH.
+</Info>
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/PostgreCon.png" alt="Postgres connection" width="400" />
+</div>
+
+## Redshift
+
+<Tip>
+**Connection Modes**
+- SSH
+- SSL
+- TLS
+</Tip>
+
+<Info>
+**Connection Details**
+Enter the information of your Redshift database to connect. You can connect using SSL, TLS, or SSH.
+</Info>
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/Redshift.png" alt="Redshift logo" width="400" />
+</div>
+
+## Databricks
+
+<Tip>
+**Connection Modes**
+- Personal Access Token
+- OAuth User-to-Machine (U2M)
+</Tip>
+
+<Info>
+**Connection Details**
+Connect to Databricks using either a Personal Access Token for automated workflows or OAuth U2M for enhanced security with user-specific permissions.
+</Info>
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/Databricks.png" alt="Databricks logo" width="400" />
+</div>
+
+## DuckDB
+
+<Tip>
+**Connection Modes**
+- Local
+</Tip>
+
+<Info>
+**Connection Details**
+Simply provide the path to your DuckDB database file to establish the connection. DuckDB's lightweight nature allows for direct file-based connections.
+</Info>
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/DuckDB.png" alt="DuckDB logo" width="400" />
+</div>
+
+## Check your data is connected
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/data_bar.png" alt="Data warehouse bar" width="300" />
+</div>
+
+To check your data is connected, open the left panel then click on the data warehouse icon. Here you will see all the tables from your data connection.
+
+When you click on a table, you will be able to preview it directly within nao.
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/data_preview.png" alt="Data preview in nao" width="800" />
+</div>
+

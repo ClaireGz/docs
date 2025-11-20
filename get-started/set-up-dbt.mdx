@@ -1,0 +1,76 @@
+---
+title: "Set up dbt"
+description: "This page explains how to integrate and configure dbt with nao for advanced analytics and data transformation workflows."
+---
+
+This page explains how to integrate and configure dbt with nao for advanced analytics and data transformation workflows.
+
+<Tip>
+**Why do I need to configure dbt?**
+
+If you have dbt working you get:
+
+- Execute & preview dbt models
+- Auto-complete of models columns, jump to refs
+- Column-level lineage in your agent
+
+Without dbt, you still get:
+
+- Agent who can create & edit: dbt models, dbt sources, dbt documentation & tests
+</Tip>
+
+## Access dbt onboarding panel
+
+To configure dbt, open the "dbt configuration" panel.
+It is available in the home page of nao, or at the left of the bottom bar.
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/dbt_panel.png" alt="Configure dbt panel" width="500" />
+</div>
+
+Then follow the dbt configuration process.
+
+## Steps in the dbt Onboarding
+
+The dbt onboarding panel guides you through the following steps to ensure your dbt project is correctly set up in nao:
+
+1. **Enable dbt**  
+   Activate dbt features in nao, such as SQL x jinja compilation, completions, lineage, and dbt tools for AI agent.
+2. **Python Interpreter**  
+   Select the Python interpreter for your dbt project or create a new environment.
+3. **Packages**  
+   Choose the dbt version and install the required warehouse adapters.
+4. **Project Configuration**  
+   Set the folder paths for your `dbt_project.yml` and `profiles.yml` files.
+5. **Environment Variables**  
+   Add any environment variables needed for your dbt project. Add them one by one in the form here, or by creating a .nao.env file. If you already have a .env file, nao will read the environment variables from here.
+6. **Target**  
+   Select the dbt target (from your `profiles.yml`) to use for this project.
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/dbt_onboarding.png" alt="dbt onboarding process" width="500" />
+</div>
+
+## Check dbt setup status
+
+When your dbt project is working, you will have a tick on the bottom left here. If not, it will be a cross. If it's still not working, you can click on the "dbt project" button and open the dbt configuration panel again.
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/dbt_status.png" alt="dbt project status indicator" width="500" />
+</div>
+
+## Setup dbt defer
+
+Use dbt defer to preview your models using production data when development data is not available.
+
+> 1. Go to dbt config panel at by clicking dbt icon at the bottom of the screen (see picture above in check dbt setup status)
+>
+> 2. Scroll down to dbt defer section and check "Enable defer"  
+>    <img src="/images/dbt_defer.png" alt="dbt defer section" width="500" />
+>    
+> 3. Add your production manifest file  
+>    
+>
+> 4. Toggle defer mode when on a dbt model. This will use production data instead of dev data when missing, to preview your dbt model.  
+>    <img src="/images/toggle_defer.png" alt="Toggle defer mode" width="500" />
+

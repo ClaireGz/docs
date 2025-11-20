@@ -1,0 +1,38 @@
+---
+title: "Codebase / Warehouse Indexing"
+description: "nao indexes your codebase to provide fast, relevant answers and code suggestions, with the context of your existing repository and data schema."
+---
+
+nao indexes your codebase to provide fast, relevant answers and code suggestions, with the context of your existing repository and data schema.
+
+<Info>
+**How does this help nao agent?**
+- It gives the agent the full context of your repository – its structure, and code style
+- It gives the agent precise context on your data schema – to make sure the generated code matches your data
+- It allows the agent to answer questions about your codebase or data warehouse
+</Info>
+
+## What is indexed?
+- All **files** in your repository – except those in `.gitignore` or `.naoignore`
+- All **table schemas** in your data warehouse
+
+## Is indexing automatic?
+If you selected **"auto-indexing"** at onboarding:
+- When opening a new folder / data connection, the indexing will be launched automatically and will take a few minutes to complete.
+- Re-indexing will be automatically triggered every 10 minutes.
+
+If not:
+- You can trigger manual indexing from the settings / AI models panel
+- You can also re-activate auto-indexing from this panel
+
+## How can I check the indexing status?
+- Go to the **settings / AI models panel** to check the status of both codebase & warehouse indexing
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/indexing_panel.gif" alt="Indexing panel" width="800" />
+</div>
+
+## Privacy & Security
+- Only the **indexing output** – i.e. embeddings – are stored in nao server. Your codebase and data schema are not stored at all. The content of your data is **never accessed** in this process.
+- See our [Privacy Policy](/privacy-policy/intro) for more details.
+

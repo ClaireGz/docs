@@ -1,0 +1,116 @@
+---
+title: "Work with dbt"
+description: "Learn how to use nao to work with dbt models, preview results, navigate lineage, and leverage AI-powered completions."
+---
+
+## Setup dbt
+
+To get the most of using dbt in nao, you should set up your dbt config within nao.   
+See the [Set up dbt](../get-started/set-up-dbt) page for a step-by-step guide.
+
+<Tip>
+**Tip:** Setting up dbt unlocks advanced features like model preview, lineage, and AI-powered completions.
+</Tip>
+
+## Preview dbt models
+
+You can directly execute dbt models in nao, if your dbt is setup well and you added your data connection.  
+Just click on the <span style={{color:'#6161f7', fontWeight:'bold'}}>execute SQL</span> button on the top bar, or press <span style={{color:'#6161f7', fontWeight:'bold'}}>cmd+enter</span>.
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/execute_dbt.png" alt="Execute dbt" width="400" />
+</div>
+
+<Tip>
+**See compiled SQL**
+**Compiled SQL:** When executing a dbt model, you will also have a tab to review the compiled SQL used by nao.
+</Tip>
+
+## Auto-complete on dbt models
+
+### Auto-complete sources & refs
+When writing from in a dbt context, nao suggest a shortcut to add <span style={{color:'#6161f7', fontWeight:'bold'}}>sources</span> and <span style={{color:'#6161f7', fontWeight:'bold'}}>refs</span>.   
+It will then suggest the list of available refs/sources in your dbt repository.
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/ref_autocomplete.gif" alt="Ref autocomplete" width="400" />
+</div>
+
+### Auto-complete columns from sources & refs
+When selecting columns from a source of a ref, nao will extract the list of <span style={{color:'#6161f7', fontWeight:'bold'}}>available columns</span>.
+It will then suggest the list of available columns for the specifc ref/source you are working on.
+
+<Tip>
+**nao AI autocomplete uses your dbt models schemas**
+Context of available dbt models/columns will also be passed to the AI auto-complete.  
+This will allow the AI autocomplete to suggest SQL relevant to your underlying dbt models.
+</Tip>
+
+## View dbt lineage
+
+### Open dbt lineage
+
+You can **open dbt lineage** from the top right icon.  
+If you currently have a dbt sql file opened, the lineage will be zoomed in 1+model+1.  
+If not, it will open full lineage.
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/open_lineage.png" alt="Open lineage" width="500" />
+</div>
+
+### Navigate dbt lineage
+
+Within lineage, you can **expand lineage** nodes to see further model dependencies.  
+You can also use **selection form** on the top right to select a precise part of lineage.  
+You can **click on a node** of the lineage to open the corresponding sql file of each model.
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/lineage_navigation.gif" alt="Navigate lineage" width="500" />
+</div>
+
+### View model dependencies
+
+When a dbt model file is open, you will have access to its **dependencies** in the top tool bar. It will show if the model has upstream and/or downstrea dependencies.
+
+<Tip>
+**Navigate model dependencies**
+Hover on dependencies to get the full list and navigate to them.
+</Tip>
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/model_dependencies.png" alt="Model dependencies" width="400" />
+</div>
+
+## Navigate dbt models
+
+You can navigate between dbt models & columns with <span style={{color:'#6161f7', fontWeight:'bold'}}>cmd+click</span>:
+- **cmd+click** on ref names to open the corresponding sql file
+- **cmd+click** on a CTE name to jump to the CTE definition
+- **cmd+click** on a column to jump to the previous definition of this column
+
+## Run dbt tests in preview
+
+If a dbt model has tests defined, you will be able to execute them directly from the preview panel.    
+On **Database** mode, the tests will be executed on the materialized dbt model.  
+On **Code** mode, the tests will be executed on the preview of current dbt code.
+
+<div style={{ textAlign: 'center' }}>
+  <img src="/images/dbt_tests.gif" alt="dbt tests" width="400" />
+</div>
+
+## nao Agent dbt tools
+
+nao agent has several tools specifically made for dbt use:
+- Create dbt models
+- Create dbt sources
+- Create dbt documentation & testing
+- Create dbt custom tests & unit tests
+- Get model / column dependencies in lineage
+- Execute dbt commands (run/build/test)
+
+Check our [Prompt library](/use-cases/prompt-library) to browse all the use cases covered by our AI agent.
+
+## Define dbt target
+
+You can change the dbt target used by nao in the dbt setup panel.
+
